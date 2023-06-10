@@ -9,7 +9,15 @@ body {
 
 .container {
     border: 1px black solid;
-    width: 500px;
-    height: 500px;
+    width: 480px;
+    height: 480px;
     background-color: blue;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+div {
+    background-color: red;
+    width: 30px;
+    height: 30px;
 }
