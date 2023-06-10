@@ -6,6 +6,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: grey;
+    flex-direction: column;
 }
 
 .container {
@@ -23,4 +24,9 @@ div {
 
 div.hovered {
     background-color: red;
+}
+
+button {
+    border: none;
+    font: sans-serif;
 }
