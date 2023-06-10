@@ -10,8 +10,6 @@ body {
 
 .container {
     border: 1px black solid;
-    width: 480px;
-    height: 480px;
     background-color: blue;
     display: flex;
     flex-flow: row wrap;
