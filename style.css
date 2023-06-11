@@ -35,11 +35,23 @@ button {
     cursor: pointer;
 }
 
-.color-settings button {
+.colour-settings button {
     height: 25px;
     width: 25px;
     border-radius: 20px;
     margin: 2px;
+}
+
+.colour-settings .reset {
+    font-size: 25px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.colour-settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .random {
