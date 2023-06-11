@@ -36,6 +36,7 @@ h1 {
     flex-flow: row wrap;
     margin: 5px 0 10px;
     box-shadow: 0 0 20px rgb(89, 87, 161);
+    background-color: white;
 }
 
 div {
