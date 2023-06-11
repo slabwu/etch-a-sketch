@@ -7,7 +7,6 @@ const colourSelect = document.querySelector('.colour-select');
 const colourPickerButton = document.querySelector('#colourpicker');
 const containerSize = document.querySelector('.container-size');
 
-
 const red = document.querySelector('.crimson');
 const orange = document.querySelector('.coral');
 const yellow = document.querySelector('.gold');
@@ -120,6 +119,8 @@ function changeBrightness() {
     let originalColour = window.getComputedStyle(this).getPropertyValue('background-colour');
     console.log(originalColour);
 }
+
+
 
 
 
