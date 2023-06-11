@@ -32,9 +32,13 @@ button {
     margin: 0 3px;
 }
 
-.colour {
+.color-settings button {
     height: 25px;
     width: 25px;
     border-radius: 20px;
     margin: 2px;
+}
+
+.random {
+    background: conic-gradient(red, coral, gold, limegreen, royalblue, darkviolet, deeppink, red);
 }

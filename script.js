@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 const sizeButton = document.querySelector('.size');
 const resetButton = document.querySelector('.reset');
+const randomButton = document.querySelector('.random');
 
 const red = document.querySelector('.crimson');
 const orange = document.querySelector('.coral');
@@ -44,7 +45,14 @@ function resetCanvas() {
 } 
 
 function paint () {
-    this.style.backgroundColor = `${chosenColour}`;
+    if (chosenColour === 'random') {
+        r = Math.random()*256;
+        g = Math.random()*256;
+        b = Math.random()*256;
+        this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    } else {
+        this.style.backgroundColor = `${chosenColour}`;
+    }
 }
 
 function changeSize() {
@@ -73,4 +81,5 @@ createCanvas(16);
 let pixels = document.querySelectorAll('div');
 sizeButton.addEventListener('click', changeSize);
 resetButton.addEventListener('click', resetCanvas);
+randomButton.addEventListener('click', () => {chosenColour = 'random'});
 colours.forEach(colour => colour.addEventListener('click', changeColour))
