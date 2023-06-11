@@ -10,7 +10,6 @@ body {
 }
 
 .container {
-    border: 1px black solid;
     background-color: blue;
     display: flex;
     flex-flow: row wrap;
@@ -41,4 +40,8 @@ button {
 
 .random {
     background: conic-gradient(red, coral, gold, limegreen, royalblue, darkviolet, deeppink, red);
+}
+
+.monochrome {
+    background: linear-gradient(black, white);
 }
