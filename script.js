@@ -13,16 +13,16 @@ let colour = 'pink';
 
 
 function createCanvas(dimension) {
-pixelHeight = containerHeight/dimension;
-pixelWidth = containerWidth/dimension;
+    pixelHeight = containerHeight/dimension;
+    pixelWidth = containerWidth/dimension;
 
-for (i=0; i<(dimension**2); i++) {
-    let div = document.createElement('div')
-    div.classList.add(`${i}`);
-    div.style.cssText = `height: ${pixelHeight}px; width: ${pixelWidth}px;`;
-    div.addEventListener('mouseover', changeColour);
-    container.appendChild(div);
-}
+    for (i=0; i<(dimension**2); i++) {
+        let div = document.createElement('div')
+        div.classList.add(`${i}`);
+        div.style.cssText = `height: ${pixelHeight}px; width: ${pixelWidth}px;`;
+        div.addEventListener('mouseover', changeColour);
+        container.appendChild(div);
+    }
 }
 
 function changeColour () {
@@ -32,6 +32,10 @@ function changeColour () {
 function changeSize() {
     let size = prompt('Select a dimension of pixels.');
     while (size > 100 || size < 1) {
+        if (size === null) {
+            size = 16;
+            break;
+        }
         size = prompt('Invalid pixel dimension. Select another value.');
     }
     pixels.forEach(pixel => pixel.remove());
