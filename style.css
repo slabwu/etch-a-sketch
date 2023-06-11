@@ -91,3 +91,8 @@ button {
     background: black;
     cursor: pointer;
 }
+
+.colour-select {
+    height: 10px;
+    background-color: black;
+}

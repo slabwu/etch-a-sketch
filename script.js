@@ -3,6 +3,7 @@ const sizeSlider = document.querySelector('.sizeSlider');
 const resetButton = document.querySelector('.reset');
 const randomButton = document.querySelector('.random');
 const monochromeButton = document.querySelector('.monochrome');
+const colourSelect = document.querySelector('.colour-select');
 
 
 const red = document.querySelector('.crimson');
@@ -104,6 +105,7 @@ function changeSize(size) {
 
 function changeColour() {
     chosenColour = this.className.substring(7);
+    colourSelect.style.background = `${chosenColour}`;
 }
 
 function changeBrightness() {
@@ -120,8 +122,11 @@ sizeSlider.onchange = function() {
   }
 colours.forEach(colour => colour.addEventListener('click', changeColour))
 resetButton.addEventListener('click', resetCanvas);
-randomButton.addEventListener('click', () => {chosenColour = 'random'});
-monochromeButton.addEventListener('click', () => {chosenColour = 'monochrome'});
+
+randomButton.addEventListener('click', () => {chosenColour = 'random'; 
+    colourSelect.style.background = 'linear-gradient(to right, red, coral, gold, limegreen, royalblue, darkviolet, deeppink)';});
+monochromeButton.addEventListener('click', () => {chosenColour = 'monochrome'; 
+    colourSelect.style.background = 'linear-gradient(to right, black, white)';});
 
 container.addEventListener('mousedown', () => {colourMode = true});
 container.addEventListener('mouseup', () => {colourMode = false});
