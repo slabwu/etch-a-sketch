@@ -116,7 +116,7 @@ function changeBrightness() {
 
 createCanvas(16);
 let pixels = document.querySelectorAll('div');
-sizeSlider.oninput = function() {
+sizeSlider.onchange = function() {
     changeSize(this.value)
   }
 colours.forEach(colour => colour.addEventListener('click', changeColour))
