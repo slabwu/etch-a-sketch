@@ -14,6 +14,7 @@ const black = document.querySelector('.black');
 const white = document.querySelector('.white');
 const colours = document.querySelectorAll('.colour');
 colours.forEach(colour => colour.style.backgroundColor = colour.className.substring(7));
+console.log(colours)
 
 const containerHeight = 480;
 const containerWidth = 480;
@@ -46,13 +47,28 @@ function resetCanvas() {
 
 function paint () {
     if (chosenColour === 'random') {
-        r = Math.random()*256;
-        g = Math.random()*256;
-        b = Math.random()*256;
+        switch (Math.floor(Math.random()*3)+1) {
+            case 1:
+                r = 256;
+                g = Math.floor(Math.random()*256);
+                b = Math.floor(Math.random()*256);
+                break;
+            case 2:
+                r = Math.floor(Math.random()*256);
+                g = 256;
+                b = Math.floor(Math.random()*256);
+                break;
+            case 3:
+                r = Math.floor(Math.random()*256);
+                g = Math.floor(Math.random()*256);
+                b = 256;                    
+                break;
+        }
         this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     } else {
         this.style.backgroundColor = `${chosenColour}`;
     }
+    console.log(this.style.backgroundColor);
 }
 
 function changeSize() {
