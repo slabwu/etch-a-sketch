@@ -1,5 +1,7 @@
 const container = document.querySelector('.container');
 const sizeButton = document.querySelector('.size');
+const resetButton = document.querySelector('.reset');
+
 const red = document.querySelector('.red');
 const orange = document.querySelector('.orange');
 const yellow = document.querySelector('.yellow');
@@ -10,6 +12,7 @@ const pink = document.querySelector('.pink');
 const black = document.querySelector('.black');
 const white = document.querySelector('.white');
 const colours = document.querySelectorAll('.colour');
+colours.forEach(colour => colour.style.backgroundColor = colour.className.substring(7));
 
 const containerHeight = 480;
 const containerWidth = 480;
@@ -35,6 +38,10 @@ function createCanvas(dimension) {
         container.appendChild(div);
     }
 }
+
+function resetCanvas() {
+    pixels.forEach(pixel => pixel.style.backgroundColor = 'white');
+} 
 
 function paint () {
     this.style.backgroundColor = `${chosenColour}`;
@@ -65,4 +72,5 @@ function changeColour () {
 createCanvas(16);
 let pixels = document.querySelectorAll('div');
 sizeButton.addEventListener('click', changeSize);
+resetButton.addEventListener('click', resetCanvas);
 colours.forEach(colour => colour.addEventListener('click', changeColour))
