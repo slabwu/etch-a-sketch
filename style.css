@@ -22,10 +22,6 @@ div {
     height: 30px;
 }
 
-div.hovered {
-    background-color: red;
-}
-
 button {
     border: none;
     font: sans-serif;

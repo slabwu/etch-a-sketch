@@ -2,12 +2,14 @@ const container = document.querySelector('.container');
 const containerHeight = 480;
 const containerWidth = 480;
 const sizeButton = document.querySelector('.size');
+container.style.cssText = `height: ${containerHeight}px; width: ${containerWidth}px;`; 
 
 let pixelHeight;
 let pixelWidth;
-let originalSize = 16;
 
-createCanvas(originalSize);
+
+
+
 
 function createCanvas(dimension) {
 pixelHeight = containerHeight/dimension;
@@ -22,17 +24,9 @@ for (i=0; i<(dimension**2); i++) {
 }
 }
 
-let pixels = document.querySelectorAll('div');
-
 function color () {
-    this.classList.add('hovered');
+    this.style.backgroundColor = 'pink';
 }
-
-
-
-container.style.cssText = `height: ${containerHeight}px; width: ${containerWidth}px;`; 
-
-sizeButton.addEventListener('click', changeSize);
 
 function changeSize() {
     let size = prompt('Select a dimension of pixels.');
@@ -43,3 +37,11 @@ function changeSize() {
     createCanvas(size);
     pixels = document.querySelectorAll('div');
 }
+
+
+
+
+
+createCanvas(16);
+let pixels = document.querySelectorAll('div');
+sizeButton.addEventListener('click', changeSize);
