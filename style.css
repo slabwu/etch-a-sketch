@@ -26,3 +26,8 @@ button {
     border: none;
     font: sans-serif;
 }
+
+.colour {
+    height: 20px;
+    width: 20px;
+}

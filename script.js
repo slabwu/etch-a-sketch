@@ -1,12 +1,23 @@
 const container = document.querySelector('.container');
+const sizeButton = document.querySelector('.size');
+const red = document.querySelector('.red');
+const orange = document.querySelector('.orange');
+const yellow = document.querySelector('.yellow');
+const green = document.querySelector('.green');
+const blue = document.querySelector('.blue');
+const purple = document.querySelector('.purple');
+const pink = document.querySelector('.pink');
+const black = document.querySelector('.black');
+const white = document.querySelector('.white');
+const colours = document.querySelectorAll('.colour');
+
 const containerHeight = 480;
 const containerWidth = 480;
-const sizeButton = document.querySelector('.size');
 container.style.cssText = `height: ${containerHeight}px; width: ${containerWidth}px;`; 
 
 let pixelHeight;
 let pixelWidth;
-let colour = 'pink';
+let chosenColour = 'black';
 
 
 
@@ -20,13 +31,13 @@ function createCanvas(dimension) {
         let div = document.createElement('div')
         div.classList.add(`${i}`);
         div.style.cssText = `height: ${pixelHeight}px; width: ${pixelWidth}px;`;
-        div.addEventListener('mouseover', changeColour);
+        div.addEventListener('mouseover', paint);
         container.appendChild(div);
     }
 }
 
-function changeColour () {
-    this.style.backgroundColor = `${colour}`;
+function paint () {
+    this.style.backgroundColor = `${chosenColour}`;
 }
 
 function changeSize() {
@@ -43,6 +54,10 @@ function changeSize() {
     pixels = document.querySelectorAll('div');
 }
 
+function changeColour () {
+    chosenColour = this.className.substring(7);
+}
+
 
 
 
@@ -50,3 +65,4 @@ function changeSize() {
 createCanvas(16);
 let pixels = document.querySelectorAll('div');
 sizeButton.addEventListener('click', changeSize);
+colours.forEach(colour => colour.addEventListener('click', changeColour))
