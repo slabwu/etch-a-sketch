@@ -23,6 +23,7 @@ container.style.cssText = `height: ${containerHeight}px; width: ${containerWidth
 let pixelHeight;
 let pixelWidth;
 let chosenColour = 'black';
+let colourMode = false;
 
 
 
@@ -46,29 +47,30 @@ function resetCanvas() {
 } 
 
 function paint () {
-    if (chosenColour === 'random') {
-        switch (Math.floor(Math.random()*3)+1) {
-            case 1:
-                r = 256;
-                g = Math.floor(Math.random()*256);
-                b = Math.floor(Math.random()*256);
-                break;
-            case 2:
-                r = Math.floor(Math.random()*256);
-                g = 256;
-                b = Math.floor(Math.random()*256);
-                break;
-            case 3:
-                r = Math.floor(Math.random()*256);
-                g = Math.floor(Math.random()*256);
-                b = 256;                    
-                break;
+    if (colourMode) {
+        if (chosenColour === 'random') {
+            switch (Math.floor(Math.random()*3)+1) {
+                case 1:
+                    r = 256;
+                    g = Math.floor(Math.random()*256);
+                    b = Math.floor(Math.random()*256);
+                    break;
+                case 2:
+                    r = Math.floor(Math.random()*256);
+                    g = 256;
+                    b = Math.floor(Math.random()*256);
+                    break;
+                case 3:
+                    r = Math.floor(Math.random()*256);
+                    g = Math.floor(Math.random()*256);
+                    b = 256;                    
+                    break;
+            }
+            this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        } else {
+            this.style.backgroundColor = `${chosenColour}`;
         }
-        this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    } else {
-        this.style.backgroundColor = `${chosenColour}`;
-    }
-    console.log(this.style.backgroundColor);
+}
 }
 
 function changeSize() {
@@ -98,4 +100,6 @@ let pixels = document.querySelectorAll('div');
 sizeButton.addEventListener('click', changeSize);
 resetButton.addEventListener('click', resetCanvas);
 randomButton.addEventListener('click', () => {chosenColour = 'random'});
+container.addEventListener('mousedown', () => {colourMode = true});
+container.addEventListener('mouseup', () => {colourMode = false});
 colours.forEach(colour => colour.addEventListener('click', changeColour))
