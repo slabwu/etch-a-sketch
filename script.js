@@ -6,6 +6,7 @@ container.style.cssText = `height: ${containerHeight}px; width: ${containerWidth
 
 let pixelHeight;
 let pixelWidth;
+let colour = 'pink';
 
 
 
@@ -19,13 +20,13 @@ for (i=0; i<(dimension**2); i++) {
     let div = document.createElement('div')
     div.classList.add(`${i}`);
     div.style.cssText = `height: ${pixelHeight}px; width: ${pixelWidth}px;`;
-    div.addEventListener('mouseover', color);
+    div.addEventListener('mouseover', changeColour);
     container.appendChild(div);
 }
 }
 
-function color () {
-    this.style.backgroundColor = 'pink';
+function changeColour () {
+    this.style.backgroundColor = `${colour}`;
 }
 
 function changeSize() {
