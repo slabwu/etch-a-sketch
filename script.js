@@ -40,7 +40,6 @@ function createCanvas(dimension) {
 
     for (i=0; i<(dimension**2); i++) {
         let div = document.createElement('div')
-        div.classList.add(`${i}`);
         div.style.cssText = `height: ${pixelHeight}px; width: ${pixelWidth}px;`;
         div.addEventListener('mouseover', paint);
         container.appendChild(div);
