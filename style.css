@@ -148,3 +148,9 @@ button:hover, p:hover, #colorpicker:hover {
     padding: 0 1px;
     border: 0;
   }
+
+  .container-size {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+  }

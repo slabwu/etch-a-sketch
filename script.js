@@ -5,6 +5,7 @@ const randomButton = document.querySelector('.random');
 const monochromeButton = document.querySelector('.monochrome');
 const colourSelect = document.querySelector('.colour-select');
 const colourPickerButton = document.querySelector('#colourpicker');
+const containerSize = document.querySelector('.container-size');
 
 
 const red = document.querySelector('.crimson');
@@ -17,6 +18,7 @@ const pink = document.querySelector('.deeppink');
 const black = document.querySelector('.black');
 const white = document.querySelector('.white');
 const colours = document.querySelectorAll('.colour');
+
 colours.forEach(colour => colour.style.backgroundColor = colour.className.substring(7));
 colourLookUp =  ['crimson: rgb(220, 20, 60)', 'coral: rgb(255, 127, 80)', 'gold: rgb(255, 215, 0)', 
                 'limegreen: rgb(50, 205, 50)', 'royalblue: rgb(65, 105, 225)', 'darkviolet: rgb(148, 0, 211)', 
@@ -29,6 +31,7 @@ colourPickerButton.addEventListener('onmouseover', () => {colourPickerButton.sty
 const containerHeight = 500;
 const containerWidth = 500;
 container.style.cssText = `height: ${containerHeight}px; width: ${containerWidth}px;`; 
+containerSize.innerText = `16 x 16`;
 
 let pixelHeight;
 let pixelWidth;
@@ -127,6 +130,7 @@ resetButton.addEventListener('click', resetCanvas);
 
 sizeSlider.onchange = function() {
     changeSize(this.value)
+    containerSize.innerText = `${this.value} x ${this.value}`;
 }
 colourPickerButton.onchange = function() {
     chosenColour = colourPickerButton.value; 
