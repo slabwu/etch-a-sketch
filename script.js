@@ -133,7 +133,7 @@ sizeSlider.onchange = function() {
     changeSize(this.value)
     containerSize.innerText = `${this.value} x ${this.value}`;
 }
-colourPickerButton.onchange = function() {
+colourPickerButton.oninput = function() {
     chosenColour = colourPickerButton.value; 
     colourSelect.style.background = `${chosenColour}`;
     colourSelect.style.boxShadow = `0 0 5px ${chosenColour}`;
