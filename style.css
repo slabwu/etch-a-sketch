@@ -1,13 +1,30 @@
 body {
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: grey;
+    background-image: conic-gradient(rgb(89, 87, 161), rgb(0, 0, 0), rgb(89, 87, 161));
     flex-direction: column;
 }
+
+h1 {
+    font-family: 'Kaushan Script', serif;
+    text-align: center;
+    font-size: 10vh;
+    color: white;
+    margin: 0 0 10px;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 5px #fff, 0 0 10px #ff4da6, 0 0 15px #e60073, 0 0 20px #e60073, 0 0 25px #e60073, 0 0 30px #e60073, 0 0 35px #e60073;
+    }
+    to {
+      text-shadow: 0 0 10px #fff, 0 0 15px #ff4da6, 0 0 20px #e60073, 0 0 25px #ff4da6, 0 0 30px #ff4da6, 0 0 35px #ff4da6, 0 0 40px #e60073;
+    }
+  }
 
 .body-container {
     display: flex;
@@ -15,10 +32,10 @@ body {
 }
 
 .container {
-    background-color: blue;
     display: flex;
     flex-flow: row wrap;
     margin: 5px 0 10px;
+    box-shadow: 0 0 10px #fff;
 }
 
 div {
@@ -36,8 +53,13 @@ button {
     margin: 0 3px;
 }
 
-button {
+button, p, #colorpicker {
     cursor: pointer;
+    transition: transform 0.1s;
+}
+
+button:hover, p:hover, #colorpicker:hover {
+    transform: scale(1.2, 1.2);
 }
 
 .colour-settings button {
@@ -46,6 +68,15 @@ button {
     border-radius: 20px;
     margin: 2px;
 }
+
+@keyframes grow {
+    from {
+        transform: scale(1, 1);
+    }
+    to {
+        transform: scale(1.5, 1.5);
+    }
+  }
 
 .colour-settings .reset {
     font-size: 25px;
@@ -95,4 +126,24 @@ button {
 .colour-select {
     height: 10px;
     background-color: black;
+    box-shadow: 0 0 5px black;
+    margin: 5px 0;
+    display: flex;
 }
+
+.glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+
+  #colorpicker {
+    border-radius: 50px;
+    height: 25px;
+    width: 25px;
+    padding: 0 1px;
+    border: 0;
+  }

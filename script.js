@@ -22,8 +22,8 @@ colourLookUp =  ['crimson: rgb(220, 20, 60)', 'coral: rgb(255, 127, 80)', 'gold:
                 'deeppink: rgb(255, 20, 147)', 'black: rgb(0, 0, 0)', 'white: rgb(255, 255, 255)'];
 colourNames = ['crimson', 'coral', 'gold', 'limegreen', 'royalblue', 'darkviolet', 'deeppink', 'black', 'white']
 
-const containerHeight = 480;
-const containerWidth = 480;
+const containerHeight = 500;
+const containerWidth = 500;
 container.style.cssText = `height: ${containerHeight}px; width: ${containerWidth}px;`; 
 
 let pixelHeight;
@@ -106,6 +106,7 @@ function changeSize(size) {
 function changeColour() {
     chosenColour = this.className.substring(7);
     colourSelect.style.background = `${chosenColour}`;
+    colourSelect.style.boxShadow = `0 0 5px ${chosenColour}`;
 }
 
 function changeBrightness() {
@@ -124,9 +125,11 @@ colours.forEach(colour => colour.addEventListener('click', changeColour))
 resetButton.addEventListener('click', resetCanvas);
 
 randomButton.addEventListener('click', () => {chosenColour = 'random'; 
-    colourSelect.style.background = 'linear-gradient(to right, red, coral, gold, limegreen, royalblue, darkviolet, deeppink)';});
+    colourSelect.style.background = 'linear-gradient(to right, red, coral, gold, limegreen, royalblue, darkviolet, deeppink)';
+    colourSelect.style.boxShadow = `0 0 5px rgb(91, 88, 177)`;});
 monochromeButton.addEventListener('click', () => {chosenColour = 'monochrome'; 
-    colourSelect.style.background = 'linear-gradient(to right, black, white)';});
+    colourSelect.style.background = 'linear-gradient(to right, black, white)';
+    colourSelect.style.boxShadow = `0 0 5px rgb(91, 88, 177)`;});
 
 container.addEventListener('mousedown', () => {colourMode = true});
 container.addEventListener('mouseup', () => {colourMode = false});

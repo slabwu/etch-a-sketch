@@ -4,11 +4,14 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
-        <title>Etch-a-sketch</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan Script">
+        <link rel="icon" type="image/x-icon" href="/palette.png">
+        <title>Canvas</title>
     </head>
 
     <body>
         <section class="body-container">
+            <h1>Canvas</h1>
             <section class="colour-settings">
                 <button class="colour crimson"></button>
                 <button class="colour coral"></button>
@@ -21,10 +24,12 @@
                 <button class="colour white"></button>
                 <button class="random"></button>
                 <button class="monochrome"></button>
+                <input type="color" id="colorpicker" value="black">
                 <p class="reset">❌</p>
             </section>
 
-            <section class="colour-select"></section>
+            <section class="colour-select">
+            </section>
 
             <section class="container">
             </section>
