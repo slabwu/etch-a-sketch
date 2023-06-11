@@ -4,6 +4,7 @@ const resetButton = document.querySelector('.reset');
 const randomButton = document.querySelector('.random');
 const monochromeButton = document.querySelector('.monochrome');
 const colourSelect = document.querySelector('.colour-select');
+const colourPickerButton = document.querySelector('#colourpicker');
 
 
 const red = document.querySelector('.crimson');
@@ -21,6 +22,9 @@ colourLookUp =  ['crimson: rgb(220, 20, 60)', 'coral: rgb(255, 127, 80)', 'gold:
                 'limegreen: rgb(50, 205, 50)', 'royalblue: rgb(65, 105, 225)', 'darkviolet: rgb(148, 0, 211)', 
                 'deeppink: rgb(255, 20, 147)', 'black: rgb(0, 0, 0)', 'white: rgb(255, 255, 255)'];
 colourNames = ['crimson', 'coral', 'gold', 'limegreen', 'royalblue', 'darkviolet', 'deeppink', 'black', 'white']
+
+colourPickerButton.style.cssText = 'height: 25px; width: 25px; border-radius: 25px; transition: transform 0.1s;';
+colourPickerButton.addEventListener('onmouseover', () => {colourPickerButton.style.cssText = 'transform: scale(1.2, 1.2);'});
 
 const containerHeight = 500;
 const containerWidth = 500;
@@ -118,11 +122,17 @@ function changeBrightness() {
 
 createCanvas(16);
 let pixels = document.querySelectorAll('div');
-sizeSlider.onchange = function() {
-    changeSize(this.value)
-  }
 colours.forEach(colour => colour.addEventListener('click', changeColour))
 resetButton.addEventListener('click', resetCanvas);
+
+sizeSlider.onchange = function() {
+    changeSize(this.value)
+}
+colourPickerButton.onchange = function() {
+    chosenColour = colourPickerButton.value; 
+    colourSelect.style.background = `${chosenColour}`;
+    colourSelect.style.boxShadow = `0 0 5px ${chosenColour}`;
+}
 
 randomButton.addEventListener('click', () => {chosenColour = 'random'; 
     colourSelect.style.background = 'linear-gradient(to right, red, coral, gold, limegreen, royalblue, darkviolet, deeppink)';
