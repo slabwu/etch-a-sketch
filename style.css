@@ -31,6 +31,10 @@ button {
     margin: 0 3px;
 }
 
+button {
+    cursor: pointer;
+}
+
 .color-settings button {
     height: 25px;
     width: 25px;
@@ -44,4 +48,29 @@ button {
 
 .monochrome {
     background: linear-gradient(black, white);
+}
+
+.sizeSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 30px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.5;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.sizeSlider:hover {
+    opacity: 1;
+  }
+
+.sizeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
 }

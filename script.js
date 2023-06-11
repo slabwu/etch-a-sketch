@@ -1,5 +1,5 @@
 const container = document.querySelector('.container');
-const sizeButton = document.querySelector('.size');
+const sizeSlider = document.querySelector('.sizeSlider');
 const resetButton = document.querySelector('.reset');
 const randomButton = document.querySelector('.random');
 const monochromeButton = document.querySelector('.monochrome');
@@ -97,15 +97,7 @@ function paint() {
 }
 }
 
-function changeSize() {
-    let size = prompt('Select a dimension of pixels.');
-    while (size > 100 || size < 1) {
-        if (size === null) {
-            size = 16;
-            break;
-        }
-        size = prompt('Invalid pixel dimension. Select another value.');
-    }
+function changeSize(size) {
     pixels.forEach(pixel => pixel.remove());
     createCanvas(size);
     pixels = document.querySelectorAll('div');
@@ -124,7 +116,9 @@ function changeBrightness() {
 
 createCanvas(16);
 let pixels = document.querySelectorAll('div');
-sizeButton.addEventListener('click', changeSize);
+sizeSlider.oninput = function() {
+    changeSize(this.value)
+  }
 colours.forEach(colour => colour.addEventListener('click', changeColour))
 resetButton.addEventListener('click', resetCanvas);
 randomButton.addEventListener('click', () => {chosenColour = 'random'});
